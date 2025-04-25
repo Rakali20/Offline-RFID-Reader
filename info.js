@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tableBody = document.querySelector("#information-table tbody");
 
     // Open IndexedDB
-    const request = indexedDB.open("LibrarySystem", 2); // Ensure the database name and version match app.js
+    const request = indexedDB.open("LibrarySystem", 2);
 
     request.onsuccess = (event) => {
         const db = event.target.result;
@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             getAllRequest.onsuccess = () => {
                 const records = getAllRequest.result;
-                records.forEach((record, index) => { // Add index as the registry number
-                    const row = createTableRow(record, storeName, db, index + 1); // Pass index to the function
+                records.forEach((record, index) => {
+                    const row = createTableRow(record, storeName, db, index + 1);
                     tableBody.appendChild(row);
                 });
             };
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Registered #
         const registryCell = document.createElement("td");
-        registryCell.textContent = registryNumber; // Display the registry number
+        registryCell.textContent = registryNumber;
         row.appendChild(registryCell);
 
         // Full Name
@@ -51,10 +51,15 @@ document.addEventListener("DOMContentLoaded", () => {
         rfidCell.textContent = record.rfidNumber || "N/A";
         row.appendChild(rfidCell);
 
-        // Type (Teacher or Student)
+        // Type
         const typeCell = document.createElement("td");
-        typeCell.textContent = type.slice(0, -1).charAt(0).toUpperCase() + type.slice(1, -1); // Capitalize "Teacher" or "Student"
+        typeCell.textContent = type.slice(0, -1).charAt(0).toUpperCase() + type.slice(1, -1);
         row.appendChild(typeCell);
+
+        // USN
+        const usnCell = document.createElement("td");
+        usnCell.textContent = record.usn || "N/A";
+        row.appendChild(usnCell);
 
         // Attachment
         const attachmentCell = document.createElement("td");
@@ -75,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("delete-button");
-        deleteButton.dataset.id = record.id; // Store the record ID in the button's dataset
-        deleteButton.dataset.type = type; // Store the type (teachers or students) in the dataset
+        deleteButton.dataset.id = record.id;
+        deleteButton.dataset.type = type;
         deleteButton.addEventListener("click", () => deleteRecord(record.id, type, db, row));
         actionCell.appendChild(deleteButton);
         row.appendChild(actionCell);
@@ -95,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         deleteRequest.onsuccess = () => {
             console.log(`Record with ID ${id} deleted successfully from ${type}.`);
-            row.remove(); // Remove the row from the table
+            row.remove();
             alert("User record deleted successfully.");
         };
 

@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RFID Scan</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for quick design fix */
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        #result p {
+            margin: 5px 0;
+        }
+
+        #result strong {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,7 +28,8 @@
         <input type="text" id="borrower-rfid" placeholder="Scan RFID" autofocus>
         <button id="borrower-scan-button">Scan</button>
         <div id="result">
-            <p>Name: <span id="borrower-name">N/A</span></p>
+            <p><strong>Name:</strong> <span id="borrower-name">N/A</span></p>
+            <p><strong>Type:</strong> <span id="borrower-type">N/A</span></p>
         </div>
     </div>
     <script src="rfid_scan.js"></script>

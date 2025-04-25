@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tableBody = document.querySelector("#book-information-table tbody");
 
     // Open IndexedDB
-    const request = indexedDB.open("LibrarySystem", 2); // Ensure the database name and version match app.js
+    const request = indexedDB.open("LibrarySystem", 2);
 
     request.onsuccess = (event) => {
         const db = event.target.result;
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Book Title
         const titleCell = document.createElement("td");
-        titleCell.textContent = record.fullName || "N/A"; // Book Title stored as fullName
+        titleCell.textContent = record.fullName || "N/A";
         row.appendChild(titleCell);
 
         // RFID Number
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Author
         const authorCell = document.createElement("td");
-        authorCell.textContent = record.usn || "N/A"; // Author stored as usn
+        authorCell.textContent = record.usn || "N/A";
         row.appendChild(authorCell);
 
         // Delete Button
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.classList.add("delete-button");
-        deleteButton.dataset.id = record.id; // Store the record ID in the button's dataset
+        deleteButton.dataset.id = record.id;
         deleteButton.addEventListener("click", () => deleteRecord(record.id, db, row));
         actionCell.appendChild(deleteButton);
         row.appendChild(actionCell);
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         deleteRequest.onsuccess = () => {
             console.log(`Record with ID ${id} deleted successfully.`);
-            row.remove(); // Remove the row from the table
+            row.remove();
             alert("Book record deleted successfully.");
         };
 
