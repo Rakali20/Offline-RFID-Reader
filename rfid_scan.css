@@ -1,0 +1,58 @@
+/* RFID Scan Specific Styles */
+.info-box {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-list {
+    padding: 10px;
+    list-style: none;
+    background-color: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-radius: 8px;
+}
+
+.info-list li {
+    margin: 5px 0;
+    padding: 5px;
+    border-bottom: 1px solid #d1d5db;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+.hidden {
+    display: none;
+}
+.letterbox {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #1e293b;
+    text-align: left;
+}
+
+#borrower-name {
+    font-weight: bold;
+    color: #2563eb;
+}

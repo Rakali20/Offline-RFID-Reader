@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Registration</h1>
+        
+        <!-- User Registration Form -->
+        <h2>Register User</h2>
+        <form id="registration-form">
+            <select id="type">
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+            </select>
+            <input type="text" id="rfid-number" placeholder="RFID Number" required>
+            <input type="text" id="full-name" placeholder="Full Name" required>
+            <input type="text" id="usn" placeholder="USN" required>
+            <input type="file" id="picture-id" accept="image/*">
+            <button type="submit">Register User</button>
+        </form>
+
+        <!-- Book Registration Form -->
+        <h2>Register Book</h2>
+        <form id="book-registration-form">
+            <input type="text" id="book-rfid-number" placeholder="RFID Number" required>
+            <input type="text" id="book-title" placeholder="Book Title" required>
+            <input type="text" id="book-author" placeholder="Author" required>
+            <button type="submit">Register Book</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
