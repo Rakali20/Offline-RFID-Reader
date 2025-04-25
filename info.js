@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
         typeCell.textContent = type.slice(0, -1).charAt(0).toUpperCase() + type.slice(1, -1);
         row.appendChild(typeCell);
 
-        // USN
         const usnCell = document.createElement("td");
         usnCell.textContent = record.usn || "N/A";
         row.appendChild(usnCell);

@@ -6,32 +6,55 @@
     <title>RFID Scan</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Inline CSS for quick design fix */
-        #result {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-
-        #result p {
-            margin: 5px 0;
-        }
-
-        #result strong {
-            color: #333;
+        /* Limit picture size */
+        .result-image img {
+            max-width: 100px; /* Maximum width for the image */
+            max-height: 100px; /* Maximum height for the image */
+            width: auto; /* Maintain aspect ratio */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="title">RFID Scan</h1>
-        <input type="text" id="borrower-rfid" placeholder="Scan RFID" autofocus>
+        <input type="text" id="borrower-rfid" placeholder="Scan Borrower RFID" autofocus>
         <button id="borrower-scan-button">Scan</button>
-        <div id="result">
-            <p><strong>Name:</strong> <span id="borrower-name">N/A</span></p>
-            <p><strong>Type:</strong> <span id="borrower-type">N/A</span></p>
+
+        <div class="result-container">
+            <div class="result-details" id="result">
+                <p><strong>Name:</strong> <span id="borrower-name">N/A</span></p>
+                <p><strong>Type:</strong> <span id="borrower-type">N/A</span></p>
+                <p><strong>USN:</strong> <span id="borrower-usn">N/A</span></p>
+            </div>
+            <div class="result-image">
+                <img id="borrower-image" src="" alt="No image available">
+            </div>
+        </div>
+
+        <h2 class="title" style="margin-top: 30px;">Enter Book RFIDs</h2>
+        <div class="book-inputs">
+            <div class="book-rfid-container">
+                <input type="text" id="book-rfid-1" placeholder="Enter Book RFID 1">
+                <p><strong>Book Name:</strong> <span id="book-title-1">N/A</span></p>
+                <p><strong>Author:</strong> <span id="book-author-1">N/A</span></p>
+            </div>
+            <div class="book-rfid-container">
+                <input type="text" id="book-rfid-2" placeholder="Enter Book RFID 2">
+                <p><strong>Book Name:</strong> <span id="book-title-2">N/A</span></p>
+                <p><strong>Author:</strong> <span id="book-author-2">N/A</span></p>
+            </div>
+            <div class="book-rfid-container">
+                <input type="text" id="book-rfid-3" placeholder="Enter Book RFID 3">
+                <p><strong>Book Name:</strong> <span id="book-title-3">N/A</span></p>
+                <p><strong>Author:</strong> <span id="book-author-3">N/A</span></p>
+            </div>
+            <button id="fetch-books-button">Fetch Book Information</button>
         </div>
     </div>
+
     <script src="rfid_scan.js"></script>
 </body>
 </html>
